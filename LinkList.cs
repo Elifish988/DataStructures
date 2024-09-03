@@ -159,9 +159,15 @@ namespace Day_1
             }
             int tmpIndex = 0;
             Node tmp = Head;
-            while(tmp != null)
+            while(tmp.GetNext() != null)
             {
-
+                tmpIndex++;
+                if(tmpIndex == index)
+                {
+                    tmp.SetNext(tmp.GetNext().GetNext());
+                    return;
+                }
+                tmp = tmp.GetNext();
             }
         }
 
