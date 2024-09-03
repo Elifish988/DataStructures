@@ -95,12 +95,12 @@ namespace Day_1
         }
 
         //7
-        public static bool isPalindrome(string str, int i = 1)
-        {
-            if()
-            {
-                return true
-            }
-        }
+        //public static bool isPalindrome(string str, int i = 1)
+        //{
+        //    if()
+        //    {
+        //        return true
+        //    }
+        //}
     }
 }
