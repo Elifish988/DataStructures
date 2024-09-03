@@ -172,16 +172,16 @@ namespace Day_1
         }
 
         // Method to find by value
-        //public Find(data)
-        //{
-
-        //}
+        public int Find(int a)
+        {
+            return 1;
+        }
 
         // Method to get a value by  index
-        //public Get(data)
-        //{
-
-        //}
+        public int Get(int a)
+        {
+            return 1;
+        }
     }
 
 
