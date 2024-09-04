@@ -137,26 +137,30 @@ namespace Day_1
         }
 
         // Method to remove the first value
+        // Method to remove all values
         public void RemoveAllValues(int value)
         {
-            Node tmp = Head;
-            if(Head == null)
-            {
-                return;
-            }
-            if (Head.GetValue() == value)
+            while (Head != null && Head.GetValue() == value)
             {
                 Head = Head.GetNext();
             }
-            while (tmp.GetNext() != null)
+            if (Head == null)
+                return;
+            Node current = Head;
+            Node prev = new Node(-1);
+            while (current.GetNext() != null)
             {
-                if (tmp.GetNext().GetValue() == value)
+                if (current.GetValue() == value)
                 {
-
-                    tmp.SetNext(tmp.GetNext().GetNext()); 
+                    prev.SetNext(current.GetNext());
                 }
-                tmp = tmp.GetNext();
+                prev = current;
+                current = current.GetNext();
 
+            }
+            if (current.GetValue() == value)
+            {
+                prev.SetNext(null);
             }
         }
 
