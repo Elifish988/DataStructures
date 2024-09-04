@@ -85,7 +85,7 @@ namespace Day_1
 
         public string Display()
         {
-            if(Head == null) { return "empty list"; }
+            if(Head == null) { return ""; }
             string result = Head.GetValue().ToString();
             Node tmp = Head.GetNext();
             while(tmp != null)
