@@ -73,6 +73,8 @@ namespace Day_1
             }
             return min;
         }
+
+
         public static int SumOfAllTriplets(int[] array)
         {
             int[] SumOfAllTriplets = { array[0], array[1], array[2] };
