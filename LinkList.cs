@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -113,28 +114,36 @@ namespace Day_1
         // Method to remove the first value
         public void RemoveValue(int value)
         {
-            if(Head.GetValue() == value)
+            if (Head != null) 
             {
-                Head = Head.GetNext();
-                return;
-            }
-            Node tmp = Head;
-            while (tmp.GetNext() != null)
-            {
-                if(tmp.GetNext().GetValue() == value)
+                if (Head.GetValue() == value)
                 {
-                    tmp.SetNext(tmp.GetNext().GetNext());
+                    Head = Head.GetNext();
                     return;
                 }
-                tmp = tmp.GetNext();
-                
+                Node tmp = Head;
+                while (tmp.GetNext() != null)
+                {
+                    if (tmp.GetNext().GetValue() == value)
+                    {
+                        tmp.SetNext(tmp.GetNext().GetNext());
+                        return;
+                    }
+                    tmp = tmp.GetNext();
+
+                }
             }
+            
         }
 
         // Method to remove the first value
         public void RemoveAllValues(int value)
         {
             Node tmp = Head;
+            if(Head == null)
+            {
+                return;
+            }
             if (Head.GetValue() == value)
             {
                 Head = Head.GetNext();
@@ -143,6 +152,7 @@ namespace Day_1
             {
                 if (tmp.GetNext().GetValue() == value)
                 {
+
                     tmp.SetNext(tmp.GetNext().GetNext()); 
                 }
                 tmp = tmp.GetNext();
@@ -174,13 +184,43 @@ namespace Day_1
         // Method to find by value
         public int Find(int a)
         {
-            return 1;
+            
+            int tmpIndex = 0;
+            Node tmp = Head;
+            while (tmp != null)
+            {
+                
+                if (tmp.GetValue() == a)
+                {
+
+                    return tmpIndex;
+                }
+                tmpIndex++;
+                tmp = tmp.GetNext();
+            }
+            return -1;
         }
 
         // Method to get a value by  index
-        public int Get(int a)
+        public int Get(int index)
         {
-            return 1;
+            int tmpIndex = 0;
+            Node tmp = Head;
+            while (tmpIndex < index)
+            {
+                if (tmp == null)
+                {
+                    return -1;
+                }
+                tmpIndex++;
+                tmp = tmp.GetNext();
+            }
+            if (tmp == null)
+            {
+                return -1;
+            }
+            return tmp.GetValue();
+
         }
     }
 

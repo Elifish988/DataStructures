@@ -85,7 +85,9 @@ class Program
             list4.Add(5);
             list4.Add(5);
             list4.Add(5);
+            Console.WriteLine(list4.Display());
             list4.RemoveAllValues(5);
+            Console.WriteLine(list4.Display());
 
             if (list4.Length() == 0 && list4.Display() == "")
             {
